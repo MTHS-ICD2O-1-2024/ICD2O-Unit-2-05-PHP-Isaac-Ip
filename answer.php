@@ -29,28 +29,23 @@
       <div class="right-image">
         <img src="./images/income_tax.jpg" alt="tax image" width="250" />
       </div>
-      <br />
-      <div class="page-content">Please enter your employment information.</div>
       <div class="page-content-php">
-        <form action="answer.php" method="GET">
-          <div class="mdl-textfield mdl-js-textfield">
-            <input class="mdl-textfield__input" type=" text" pattern="-?[0-9]*(\.[0-9]+)?" name="hours-worked">
-            <label class="mdl-textfield__label" for="hours-worked">Hours Worked (h)</label>
-            <span class="mdl-textfield__error">Input is not a number!</span>
-          </div>
-          <br />
-          <div class="mdl-textfield mdl-js-textfield">
-            <input class="mdl-textfield__input" type=" text" pattern="-?[0-9]*(\.[0-9]+)?" name="hourly-wage">
-            <label class="mdl-textfield__label" for="hourly-wage">Hourly Wage ($)</label>
-            <span class="mdl-textfield__error">Input is not a number!</span>
-          </div>
-          <br />
-          <!-- Accent-colored raised button with ripple -->
-          <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"
-            type="submit">
-            Calculate
-          </button>
-        </form>
+        <div id="user-info">
+          <?php
+          $hoursWorked = $_GET["hours-worked"];
+          $hourlyWage = $_GET["hourly-wage"];
+
+          // process
+          $pay = ($hoursWorked * $hourlyWage) * (1 - 0.18);
+          $tax = ($hoursWorked * $hourlyWage) * 0.18;
+
+          // output
+          echo "Your pay will be: " . $pay . " cm:";
+          echo "<br />";
+          echo "<br />";
+          echo "The government will take: " . $tax . "";
+          ?>
+        </div>
       </div>
     </main>
   </div>
