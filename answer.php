@@ -39,11 +39,15 @@
           $pay = ($hoursWorked * $hourlyWage) * (1 - 0.18);
           $tax = ($hoursWorked * $hourlyWage) * 0.18;
 
+          $formatAsCurrency = numfmt_create('en_EN', NumberFormatter::CURRENCY);
+          echo numfmt_format_currency($formatAsCurrency, $pay, "CDN") . "\n";
+          echo numfmt_format_currency($formatAsCurrency, $tax, "CDN") . "\n";
+
           // output
-          echo "Your pay will be: " . $pay . " cm:";
+          echo "Your pay will be: $" . $pay . "";
           echo "<br />";
           echo "<br />";
-          echo "The government will take: " . $tax . "";
+          echo "The government will take: $" . $tax . "";
           ?>
         </div>
       </div>
