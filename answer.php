@@ -35,13 +35,13 @@
           $hoursWorked = $_GET["hours-worked"];
           $hourlyWage = $_GET["hourly-wage"];
 
+          $fmt = numfmt_create( 'en_EN', NumberFormatter::CURRENCY );
+          echo numfmt_format_currency($fmt, $hourlyWage, "CDN")."\n";
+          echo numfmt_format_currency($fmt, $hoursWorked, "CDN")."\n";
+
           // process
           $pay = ($hoursWorked * $hourlyWage) * (1 - 0.18);
           $tax = ($hoursWorked * $hourlyWage) * 0.18;
-
-          $formatAsCurrency = numfmt_create('en_EN', NumberFormatter::CURRENCY);
-          echo numfmt_format_currency($formatAsCurrency, $pay, "CDN") . "\n";
-          echo numfmt_format_currency($formatAsCurrency, $tax, "CDN") . "\n";
 
           // output
           echo "Your pay will be: $" . $pay . "";
