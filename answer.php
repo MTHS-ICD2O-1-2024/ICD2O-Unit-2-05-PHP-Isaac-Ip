@@ -39,14 +39,11 @@
           $pay = ($hoursWorked * $hourlyWage) * (1 - 0.18);
           $tax = ($hoursWorked * $hourlyWage) * 0.18;
 
-          $formatAsCurrency = numfmt_create('en_EN', NumberFormatter::CURRENCY);
-          echo num_format_currency($formatAsCurrency, $someVariable, "CDN") . "\n";
-
           // output
-          echo "Your pay will be: $" . $pay . "";
+          echo "Your pay will be: $"  . (round($pay, 2)) . "";
           echo "<br />";
           echo "<br />";
-          echo "The government will take: $" . number_format($tax, 2) . "";
+          echo "The government will take: $" . (round($tax, 2)) . "";
           ?>
         </div>
       </div>
